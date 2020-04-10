@@ -1,0 +1,16 @@
+.
+[4.0K]  ./0.llvm
+[1.1K]  ./0.llvm/build.sh
+[1.3K]  ./0.llvm/Dockerfile
+[ 306]  ./0.llvm/Makefile
+[4.0K]  ./1.clang
+[1.1K]  ./1.clang/build.sh
+[1.5K]  ./1.clang/Dockerfile
+[ 338]  ./1.clang/Makefile
+[4.0K]  ./2.llvm-clang
+[1.2K]  ./2.llvm-clang/build.sh
+[1.7K]  ./2.llvm-clang/Dockerfile
+[ 399]  ./2.llvm-clang/Makefile
+[ 638]  ./bootsrc.sh
+[   0]  ./files
+[1.1K]  ./README.md
