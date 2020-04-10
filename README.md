@@ -6,7 +6,7 @@ The project is a collection of build scripts for bootsrapping LLVM compiler for 
 - `1.clang` builds Clang using GCC compiler with '0.llvm'
 - `2.llvm-clang` builds LLVM using Clang built by '1.clang'
 
-`
+```
 # Build LLVM using GCC compiler.
 $ source bootsrc.sh
 $ mkdir -p /bootsrc/llvm
@@ -36,4 +36,4 @@ $ make
 
 # This creates LLVM binary built by Clang:
 # /bootsrc/llvm-clang/llvm-clang-10.0.0-x86_64.tar.gz
-`
+```
