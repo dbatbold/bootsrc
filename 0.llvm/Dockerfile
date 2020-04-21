@@ -2,7 +2,6 @@
 FROM archlinux/base
 
 ARG PKG_SITE
-ARG LLVM_KEY
 ARG LLVM_VER
 
 ENV VER=$LLVM_VER
@@ -17,23 +16,25 @@ RUN pacman -S --noconfirm \
 RUN printf "pass\npass\n" | passwd
 
 # Add user.
-RUN useradd -d /build builder
-WORKDIR /build
+RUN useradd -m -d /build builder
 
 # Create install directory.
-RUN mkdir -p /bootsrc/llvm/llvm-$VER
-RUN chown builder /build /bootsrc/llvm/llvm-$VER
+RUN mkdir /bootsrc
+RUN chown builder /bootsrc
 
 # Download LLVM source.
 USER builder
-ADD build.sh Dockerfile Makefile /build/
+RUN mkdir /build/llvm
+WORKDIR /build/llvm
+ADD build.sh Dockerfile Makefile ./
 RUN wget -q $PKG_SITE/src/llvm/llvm-$VER.src.tar.xz \
-    || wget -q https://github.com/llvm/llvm-project/releases/download/llvmorg-$VER/llvm-$VER.src.tar.xz
+    || wget https://github.com/llvm/llvm-project/releases/download/llvmorg-$VER/llvm-$VER.src.tar.xz
 RUN wget -q $PKG_SITE/src/llvm/llvm-$VER.src.tar.xz.sig \
-    || wget -q https://github.com/llvm/llvm-project/releases/download/llvmorg-$VER/llvm-$VER.src.tar.xz.sig
+    || wget https://github.com/llvm/llvm-project/releases/download/llvmorg-$VER/llvm-$VER.src.tar.xz.sig
 
 # Verify and extract source.
-RUN gpg --recv $LLVM_KEY
+RUN wget -O hans-gpg-key.asc https://releases.llvm.org/$VER/hans-gpg-key.asc
+RUN gpg --import hans-gpg-key.asc
 RUN gpg --verify llvm-$VER.src.tar.xz.sig
 RUN tar xf llvm-$VER.src.tar.xz --no-same-owner
 

@@ -15,10 +15,10 @@ which ar bzip2 bunzip2 chmod cat cp date echo egrep \
 
 echo "Cleanup destination directory"
 mkdir -vp $DEST || true
-test -n $("ls -A $DEST") && rm -fr $DEST/*
+test -n $("ls -A $DEST 2>/dev/null") && rm -fr $DEST/*
 date >$DEST/duration
 
-echo "Make build directory"
+echo "Change to build directory"
 mkdir build && cd build
 
 echo "Configure source"

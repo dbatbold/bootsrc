@@ -1,5 +1,5 @@
-# Build Clang using '0.llvm' image
-FROM bootsrc:llvm
+# Build Clang using '1.clang' image
+FROM bootsrc:llvm-clang
 
 ARG PKG_SITE
 ARG LLVM_VER
@@ -8,19 +8,22 @@ ENV VER=$LLVM_VER
 
 USER root
 
-# Protect llvm installation directory.
-RUN chown -R root:root /bootsrc/llvm
+# Protect llvm-clang installation directory.
+RUN chown -R root:root /bootsrc/llvm-clang
+
+# Remove llvm built GCC.
+RUN rm -fr /bootsrc/llvm
 
 # Remove llvm build directory.
-RUN rm -fr /build/llvm
+RUN rm -fr /build/llvm-clnag
 
 # Create install destination directory.
 USER builder
-RUN mkdir -p /bootsrc/clang/clang-$VER
+RUN mkdir -p /bootsrc/clang-clang/clang-clang-$VER
 
 # Create build directory.
-RUN mkdir /build/clang
-WORKDIR /build/clang
+RUN mkdir /build/clang-clang
+WORKDIR /build/clang-clang
 COPY build.sh Dockerfile Makefile ./
 
 # Download LLVM source.
@@ -35,5 +38,5 @@ RUN gpg --import hans-gpg-key.asc
 RUN gpg --verify clang-$VER.src.tar.xz.sig
 RUN tar xf clang-$VER.src.tar.xz --no-same-owner
 
-# Build Clang using GCC.
+# Build Clang using Clang.
 ENTRYPOINT time ./build.sh
