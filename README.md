@@ -19,8 +19,10 @@ $ make -C 2.llvm-clang
 
 # Build Clang using Clang binary built by the previous stage.
 $ make -C 3.clang-clang
+```
 
-# The following binary packages will be created in the `bootsrc:clang-clang` image:
+The following binary packages will be created in the `bootsrc:clang-clang` image.
+```
 /bootsrc/llvm/llvm-10.0.0-x86_64.tar.gz
 /bootsrc/clang/clang-10.0.0-x86_64.tar.gz
 /bootsrc/llvm-clang/llvm-clang-10.0.0-x86_64.tar.gz
