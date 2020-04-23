@@ -11,11 +11,8 @@ USER root
 # Protect llvm-clang installation directory.
 RUN chown -R root:root /bootsrc/llvm-clang
 
-# Remove llvm built GCC.
-RUN rm -fr /bootsrc/llvm
-
 # Remove llvm build directory.
-RUN rm -fr /build/llvm-clnag
+RUN rm -fr /build/llvm-clang
 
 # Create install destination directory.
 USER builder

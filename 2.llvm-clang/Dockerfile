@@ -11,6 +11,9 @@ USER root
 # Protect clang installation directory.
 RUN chown -R root:root /bootsrc/clang
 
+# Remove llvm build directory.
+RUN rm -fr /build/llvm
+
 # Remove clang build directory.
 RUN rm -fr /build/clang
 
