@@ -1,4 +1,4 @@
-# Build LLVM using GCC without the sub projects.
+# Build LLVM using GCC without the subprojects.
 FROM archlinux/base
 
 ARG PKG_SITE

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "Building LLVM sub projects"
+echo "Building LLVM subprojects"
 
 DEST=/bootsrc/llvm-tools/llvm-tools-$VER   # Install destination
 LLVM_CONFIG=/bootsrc/llvm-clang/llvm-clang-$VER/bin/llvm-config
@@ -33,7 +33,7 @@ cmake -G Ninja \
         -DCMAKE_INSTALL_PREFIX=$DEST/libcxxabi \
         -DCMAKE_BUILD_TYPE=MinSizeRel \
         -DLLVM_CONFIG_PATH=$LLVM_CONFIG \
-	-DLIBCXXABI_LIBCXX_PATH=$PWD/../libcxx-$VER.src \
+        -DLIBCXXABI_LIBCXX_PATH=$PWD/../libcxx-$VER.src \
         ../libcxxabi-$VER.src
 
 echo
@@ -134,7 +134,7 @@ ninja install
 cd ..
 
 ################################################################################
-# # Build lldb linker.
+# # Build lldb debugger.
 # 
 # echo "Make build directory"
 # mkdir build-lldb && cd build-lldb

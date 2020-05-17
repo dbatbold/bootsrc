@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "Building LLVM $VER using Clang without sub projects"
+echo "Building LLVM $VER using Clang without subprojects"
 
 DEST=/bootsrc/llvm-clang/llvm-clang-$VER   # Install destination
 
