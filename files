@@ -2,25 +2,27 @@
 [4.0K]  ./0.llvm
 [1.1K]  ./0.llvm/build.sh
 [1.3K]  ./0.llvm/Dockerfile
-[ 306]  ./0.llvm/Makefile
+[ 281]  ./0.llvm/Makefile
 [  67]  ./0.llvm/speed
 [4.0K]  ./1.clang
 [1.1K]  ./1.clang/build.sh
-[1.0K]  ./1.clang/Dockerfile
-[ 313]  ./1.clang/Makefile
+[1.1K]  ./1.clang/Dockerfile
+[ 288]  ./1.clang/Makefile
 [4.0K]  ./2.llvm-clang
 [1.2K]  ./2.llvm-clang/build.sh
 [1.1K]  ./2.llvm-clang/Dockerfile
 [ 323]  ./2.llvm-clang/Makefile
 [4.0K]  ./3.clang-clang
-[1.1K]  ./3.clang-clang/build.sh
-[1.0K]  ./3.clang-clang/Dockerfile
-[ 313]  ./3.clang-clang/Makefile
-[ 660]  ./bootsrc.sh
+[1.2K]  ./3.clang-clang/build.sh
+[1.5K]  ./3.clang-clang/Dockerfile
+[ 324]  ./3.clang-clang/Makefile
+[4.0K]  ./4.llvm-tools
+[1.2K]  ./4.llvm-tools/build.sh
+[1.1K]  ./4.llvm-tools/Dockerfile
+[ 323]  ./4.llvm-tools/Makefile
+[ 331]  ./bootsrc.sh
 [   0]  ./files
-[6.4K]  ./git.diff
-[3.4K]  ./hans-gpg-key.asc
+[ 14K]  ./git.diff
 [1.0K]  ./LICENSE
-[1.1K]  ./README.md
+[1.2K]  ./README.md
 
-4 directories, 19 files

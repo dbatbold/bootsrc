@@ -29,6 +29,7 @@ CXX=clang++ \
 cmake -G Ninja \
         -DCMAKE_INSTALL_PREFIX=$DEST \
         -DCMAKE_BUILD_TYPE=MinSizeRel \
+        -DLLVM_CONFIG_PATH=/bootsrc/llvm/llvm-$VER/bin/llvm-config \
         ../llvm-$VER.src
 
 echo

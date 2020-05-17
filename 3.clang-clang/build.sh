@@ -30,6 +30,7 @@ cmake -G Ninja \
         -DCMAKE_PREFIX_PATH=/bootsrc/llvm-clang/llvm-clang-$VER \
         -DCMAKE_INSTALL_PREFIX=$DEST \
         -DCMAKE_BUILD_TYPE=MinSizeRel \
+        -DLLVM_CONFIG_PATH=/bootsrc/llvm-clang/llvm-clang-$VER/bin/llvm-config \
         ../clang-$VER.src
 
 echo

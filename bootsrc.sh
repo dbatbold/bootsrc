@@ -1,4 +1,4 @@
-# Optional local package server used in caching source files
+# Optional local file server used in caching source files
 # and Archlinux binary packages for faster access.
 export PKG_SITE=http://zero-file
 

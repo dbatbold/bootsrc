@@ -5,6 +5,7 @@ ARG PKG_SITE
 ARG LLVM_VER
 
 ENV VER=$LLVM_VER
+ENV GITHUB=https://github.com/llvm/llvm-project/releases/download/llvmorg-$VER
 
 USER root
 
@@ -25,9 +26,9 @@ COPY build.sh Dockerfile Makefile ./
 
 # Download LLVM source.
 RUN wget -q $PKG_SITE/src/llvm/clang-$VER.src.tar.xz \
-    || wget https://github.com/llvm/llvm-project/releases/download/llvmorg-$VER/clang-$VER.src.tar.xz
+            || wget -q $GITHUB/clang-$VER.src.tar.xz
 RUN wget -q $PKG_SITE/src/llvm/clang-$VER.src.tar.xz.sig \
-    || wget https://github.com/llvm/llvm-project/releases/download/llvmorg-$VER/clang-$VER.src.tar.xz.sig
+            || wget -q $GITHUB/clang-$VER.src.tar.xz.sig
 
 # Verify and extract source.
 RUN wget -O hans-gpg-key.asc https://releases.llvm.org/$VER/hans-gpg-key.asc

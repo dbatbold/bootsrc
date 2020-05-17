@@ -5,11 +5,13 @@ ARG PKG_SITE
 ARG LLVM_VER
 
 ENV VER=$LLVM_VER
+ENV GITHUB=https://github.com/llvm/llvm-project/releases/download/llvmorg-$VER
 
 # Install build dependencies.
 RUN echo "Server = $PKG_SITE/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
 RUN echo 'Server = https://mirrors.dotsrc.org/archlinux/$repo/os/$arch' >> /etc/pacman.d/mirrorlist
 RUN pacman -Sy
+RUN pacman -Su --noconfirm
 RUN pacman -S --noconfirm \
         gcc git wget gnupg grep tar vim tree cmake ninja which \
         unzip zip python diffutils
@@ -28,9 +30,9 @@ RUN mkdir /build/llvm
 WORKDIR /build/llvm
 ADD build.sh Dockerfile Makefile ./
 RUN wget -q $PKG_SITE/src/llvm/llvm-$VER.src.tar.xz \
-    || wget https://github.com/llvm/llvm-project/releases/download/llvmorg-$VER/llvm-$VER.src.tar.xz
+            || wget -q $GITHUB/llvm-$VER.src.tar.xz
 RUN wget -q $PKG_SITE/src/llvm/llvm-$VER.src.tar.xz.sig \
-    || wget https://github.com/llvm/llvm-project/releases/download/llvmorg-$VER/llvm-$VER.src.tar.xz.sig
+            || wget -q $GITHUB/llvm-$VER.src.tar.xz.sig
 
 # Verify and extract source.
 RUN wget -O hans-gpg-key.asc https://releases.llvm.org/$VER/hans-gpg-key.asc
